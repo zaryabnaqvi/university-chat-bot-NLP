@@ -1,0 +1,28 @@
+.section{
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.main-heading{
+  color: black;
+  font-size: 26px;
+}
+.underline{
+  height: 2px;
+  width: 15rem;
+  background-color: black;
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+.second-heading{
+  color: red;
+}
+.underlines{
+  height: 2px;
+  width: 60rem;
+  background-color: red;
+  margin-top:0;
+  margin-bottom: 20px;
+}
+.third-heading{
+  color: red;
+}
