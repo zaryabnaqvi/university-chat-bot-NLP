@@ -15,17 +15,34 @@ const Chatbot = () => {
     setInputText(event.target.value);
   };
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async() => {
     if (inputText) {
       const newMessage = { text: inputText, isUser: true };
 
       setMessages((prevMessages) => [newMessage, ...prevMessages]);
 
       setInputText("");
+
+      const data = await fetch("/members",{
+        method:"POST",
+        headers:{
+          "Content-type":"application/json",
+        },
+        body:JSON.stringify({inputText})}
+      )
+      if(data.status==200){
+        const json = await data.json()
+        const ChatMessage = { text: json.message, isUser: false };
+
+      setMessages((prevMessages) => [ChatMessage, ...prevMessages]);
+       console.log(json)
+       
+   
+      }
     }
   };
 
-  const handleEnterPress = (event) => {
+  const handleEnterPress = async(event) => {
     if (event.key === "Enter") {
       handleSendMessage();
     }
